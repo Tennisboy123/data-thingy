@@ -5,6 +5,7 @@ airplane_delays_df = pd.read_csv('data/full_data_flightdelay.csv', on_bad_lines=
 
 airplane_delays_df = airplane_delays_df.drop(columns=['DISTANCE_GROUP',
                                                       'SEGMENT_NUMBER',
+                                                      'CONCURRENT_FLIGHTS',
                                                       'NUMBER_OF_SEATS',
                                                       'AIRPORT_FLIGHTS_MONTH',
                                                       'AIRLINE_FLIGHTS_MONTH',
@@ -15,11 +16,13 @@ airplane_delays_df = airplane_delays_df.drop(columns=['DISTANCE_GROUP',
                                                       'GROUND_SERV_PER_PASS',
                                                       'LATITUDE',
                                                       'LONGITUDE',
-                                                      'PREVIOUS_AIRPORT'])
+                                                      'PREVIOUS_AIRPORT',
+                                                      'SNWD'])
 
-airplane_delays_df['PRCP_CM'] = airplane_delays_df.PRCP * 2.54
-airplane_delays_df['SNOW_CM'] = airplane_delays_df.SNOW * 2.54
-airplane_delays_df['TMAX_CELSIUS'] = (airplane_delays_df.TMAX-32) * 5/9
+
+airplane_delays_df["PRCP_MM"] = airplane_delays_df["PRCP"] * 25.4
+airplane_delays_df["SNOW_CM"] = airplane_delays_df["PRCP"] * 2.54
+airplane_delays_df["TMAX_CELSIUS"] = (airplane_delays_df["TMAX"] - 32) * 5/9
 
 airplane_delays_df = airplane_delays_df[airplane_delays_df['DEP_DEL15'] == 1]
 print(airplane_delays_df)
