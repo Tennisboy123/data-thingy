@@ -5,12 +5,13 @@ quit = False
 
 airplane_delays_df = pd.read_csv('Data/airplane_delays.csv')
 
+
 #most_delayed_month = most_delayed_month_value.sort_values(axis='columns') tried something
 
 #Functions
 def show_most_delayed_month_mode():
     most_delayed_month_mode = airplane_delays_df['MONTH'].mode()
-    print(f"The most delayed month of the year for airplane delays is " + (most_delayed_month_mode))
+    print("The most delayed month of the year for airplane delays is " + most_delayed_month_mode.values[0] + ".")
 
 def show_most_delayed_month_value():
     most_delayed_month_value = airplane_delays_df['MONTH'].value_counts()
@@ -19,7 +20,7 @@ def show_most_delayed_month_value():
 
 def show_most_delayed_dayofweek_mode():
     most_delayed_dayofweek_mode = airplane_delays_df['DAY_OF_WEEK'].mode()
-    print("The most delayed day of the week for airplane delays is " + most_delayed_dayofweek_mode)
+    print("The most delayed day of the week for airplane delays is " + most_delayed_dayofweek_mode.values[0] + ".")
 
 def show_most_delayed_dayofweek_value():
     most_delayed_dayofweek_value = airplane_delays_df['DAY_OF_WEEK'].value_counts()
@@ -28,7 +29,7 @@ def show_most_delayed_dayofweek_value():
 
 def show_most_delayed_time_block_mode():
     most_delayed_time_block_mode = airplane_delays_df['DEP_TIME_BLK'].mode()
-    print("The most delayed time block for airplane delays is " + most_delayed_time_block_mode)
+    print("The most delayed time block for airplane delays is " + most_delayed_time_block_mode.values[0] + ".")
 
 def show_most_delayed_time_block_value():
     most_delayed_time_block_value = airplane_delays_df['DEP_TIME_BLK'].value_counts()
@@ -37,7 +38,7 @@ def show_most_delayed_time_block_value():
 
 def show_most_delayed_airline_mode():
     most_delayed_airline_mode = airplane_delays_df['CARRIER_NAME'].mode()
-    print("The most delayed airline for airplane delays is " + most_delayed_airline_mode)
+    print("The most delayed airline for airplane delays is " + most_delayed_airline_mode.values[0] + ".")
 
 def show_most_delayed_airline_value():
     most_delayed_airline_value = airplane_delays_df['CARRIER_NAME'].value_counts()
@@ -46,40 +47,40 @@ def show_most_delayed_airline_value():
 
 def show_most_delayed_airport_mode():
     most_delayed_airport_mode = airplane_delays_df['DEPARTING_AIRPORT'].mode()
-    print("The most delayed airport for airplane delays is " + most_delayed_airport_mode)
+    print("The most delayed airport for airplane delays is " + most_delayed_airport_mode.values[0] + ".")
 
 def show_most_delayed_airport_value():
-    most_delayed_airport_value = airplane_delays_df['DEPARTING_AIRPORT'].value_counts()
-    most_delayed_airport_value.plot(kind='barh', x='Delays', y='Name of Airport', color='blue', alpha=0.3, title='Most Delayed Airports', fontsize='4')
+    most_delayed_airport_value = airplane_delays_df['DEPARTING_AIRPORT'].value_counts().head(30)
+    most_delayed_airport_value.plot(kind='barh', x='Delays', y='Name of Airport', color='blue', alpha=0.3, title='Most Delayed Airports', fontsize='5')
     plt.show()
     
 def show_most_delayed_plane_age():
-    most_delayed_plane_age = airplane_delays_df['PLANE_AGE'].median()
-    print("The average plane age for flight delays is " + most_delayed_plane_age)
+    most_plane_age = airplane_delays_df['PLANE_AGE'].median()
+    print("The most delayed airport for airplane delays is " + str(most_plane_age))
 
 def show_most_delayed_rain():
     most_delayed_PRCP = airplane_delays_df['PRCP'].median()
-    print("The average amount of rain in inches for flight delays is " + most_delayed_PRCP)
+    print("The average amount of rain in inches for flight delays is " + str(most_delayed_PRCP) + " inches.")
     
 def show_most_delayed_rain_mm():
     most_delayed_PRCP_MM = airplane_delays_df['PRCP_MM'].median()
-    print("The average amount of rain in mm for flight delays is " + most_delayed_PRCP_MM)
+    print("The average amount of rain in mm for flight delays is " + str(most_delayed_PRCP_MM) + "mm.")
     
 def show_most_delayed_snow():
     most_delayed_SNOW = airplane_delays_df['SNOW'].median()
-    print("The average amount of snow in inches for flight delays is " + most_delayed_SNOW)
+    print("The average amount of snow for flight delays is " + str(most_delayed_SNOW) + " inches.")
     
 def show_most_delayed_snow_cm():
     most_delayed_SNOW_CM = airplane_delays_df['SNOW_CM'].median()
-    print("The average amount of snow in cm for flight delays is " + most_delayed_SNOW_CM)
+    print("The average amount of snow for flight delays is " + str(most_delayed_SNOW_CM) + "cm.")
     
 def show_most_delayed_max_temp():
     most_delayed_TMAX = airplane_delays_df['TMAX'].median()
-    print("The average highest temperature in fahrenheit for flight delays is " + most_delayed_TMAX)
+    print("The average highest temperature in fahrenheit for flight delays is " + str(most_delayed_TMAX) + "°F.")
     
 def show_most_delayed_max_temp_celsius():
     most_delayed_TMAX_CELSIUS = airplane_delays_df['TMAX_CELSIUS'].median()
-    print("The average highest temperature in celsius for flight delays is " + most_delayed_TMAX_CELSIUS)
+    print("The average highest temperature in celsius for flight delays is " + str(round(most_delayed_TMAX_CELSIUS, 2)) + "°C.")
  
 def useroptions():
     global quit
@@ -87,14 +88,15 @@ def useroptions():
     print("""Welcome to the home of flight delays. 
           
     Please select one of these options:
-    1. View the whole dataset
+    1. View the whole dataset with delays
     2. See the most delayed month
     3. See the most delayed day of the week
     4. See the most delayed time block
     5. See the most delayed airplane company
-    6. See the average plane age for flight delays
-    7. See the weather for flight delays
-    8. Quit program
+    6. See the most delayed airport
+    7. See the average plane age for flight delays
+    8. See the weather for flight delays
+    9. Quit program
     """)
     
     try:
@@ -105,8 +107,8 @@ def useroptions():
         elif choice == 2:
             print("""Which of the following would you like to see?
                   
-                  1. The most delayed month
-                  2. A chart with all the months
+                  1. The most delayed month of the year
+                  2. A chart with all the months of the year
                   3. Go back
                   """)
             
@@ -183,8 +185,28 @@ def useroptions():
             except:
                 print("Are you okay or can you not choose a number?")
         elif choice == 6:
-            show_most_delayed_plane_age()
+            print("""Which of the following would you like to see?
+                  
+                  1. The most delayed airport
+                  2. A chart with 30 of the most delayed airports
+                  3. Go back
+                  """)
+            
+            try:
+                choice = int(input('Enter Selection: '))
+                if choice == 1:
+                    show_most_delayed_airport_mode()
+                elif choice == 2:
+                    show_most_delayed_airport_value()
+                elif choice == 3:
+                    useroptions()
+                else:
+                    print("Enter a number between 1 and 3 please.")
+            except:
+                print("Are you okay or can you not choose a number?")
         elif choice == 7:
+            show_most_delayed_plane_age()
+        elif choice == 8:
             print("""Which of the following would you like to see?
                   
                   1. The inches of rain
