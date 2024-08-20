@@ -10,11 +10,11 @@ airplane_delays_df = pd.read_csv('Data/airplane_delays.csv')
 #Functions
 def show_most_delayed_month_mode():
     most_delayed_month_mode = airplane_delays_df['MONTH'].mode()
-    print("The most delayed month for airplane delays is " + most_delayed_month_mode)
+    print(f"The most delayed month of the year for airplane delays is " + (most_delayed_month_mode))
 
 def show_most_delayed_month_value():
     most_delayed_month_value = airplane_delays_df['MONTH'].value_counts()
-    most_delayed_month_value.plot(kind='barh', x='Delays', y='Month', color='blue', alpha=0.3, title='Most Delayed Month', fontsize='8',)
+    most_delayed_month_value.plot(kind='barh', x='Delays', y='Month', color='blue', alpha=0.3, title='Most Delayed Month', fontsize='8')
     plt.show()
 
 def show_most_delayed_dayofweek_mode():
@@ -212,12 +212,12 @@ def useroptions():
                     show_most_delayed_max_temp_celsius()
                 elif choice == 7:
                     useroptions()
-                elif choice == 8:
-                    quit = True
                 else:
                     print("Enter a number between 1 and 7 please.")
             except:
                 print("Are you okay or can you not choose a number?")
+        elif choice == 8:
+            quit = True
         else:
             print("Enter a number between 1 and 8 please")
     except:
@@ -225,5 +225,3 @@ def useroptions():
 
 while not quit:
     useroptions()
-
-            
