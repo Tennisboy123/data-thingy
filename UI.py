@@ -238,7 +238,7 @@ def useroptions():
                     print("Enter a number between 1 and 7 please.")
             except:
                 print("Are you okay or can you not choose a number?")
-        elif choice == 8:
+        elif choice == 9:
             quit = True
         else:
             print("Enter a number between 1 and 8 please")
