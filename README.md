@@ -15,55 +15,55 @@ Then, go to UI.py. This is where the user interface is. Some things that you can
 Here are all of the options for you to choose!
 
 <ol>
-  <li>1 - Show the dataset with all the delays</li>
-  <li>2 - See the most delayed month
+  <li>Show the dataset with all the delays</li>
+  <li>See the most delayed month
     <ol>
-      <li>1 - The most delayed month of the year</li>
-      <li>2 - A chart with all the months of the year</li>
-      <li>3 - Go back</li>
+      <li>The most delayed month of the year</li>
+      <li>A chart with all the months of the year</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>3 - See the most delayed day of the week
+  <li>See the most delayed day of the week
     <ol>
-      <li>1 - The most delayed day of the week</li>
-      <li>2 - A chart with all the days of the week</li>
-      <li>3 - Go back</li>
+      <li>The most delayed day of the week</li>
+      <li>A chart with all the days of the week</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>4 - See the most delayed time block
+  <li>See the most delayed time block
     <ol>
-      <li>1 - The most delayed time block</li>
-      <li>2 - A chart with all the time blocks</li>
-      <li>3 - Go back</li>
+      <li>The most delayed time block</li>
+      <li>A chart with all the time blocks</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>5 - See the most delayed airline company
+  <li>See the most delayed airline company
     <ol>
-      <li>1 - The most delayed airline</li>
-      <li>2 - A chart with all the airlines</li>
-      <li>3 - Go back</li>
+      <li>The most delayed airline</li>
+      <li>A chart with all the airlines</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>6 - See the most delayed airport
+  <li>See the most delayed airport
     <ol>
-      <li>1 - The most delayed airport</li>
-      <li>2 - A chart with 30 of the most delayed airports</li>
-      <li>3 - Go back</li>
+      <li>The most delayed airport</li>
+      <li>A chart with 30 of the most delayed airports</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>7 - See the average plane age for flight delays</li>
-  <li>8 - See the weather for flight delays
+  <li>See the average plane age for flight delays</li>
+  <li>See the weather for flight delays
     <ol>
-      <li>1 - The inches of rain</li>
-      <li>2 - The mm of rain</li>
-      <li>3 - The inches of snow</li>
-      <li>4 - The cm of snow</li>
-      <li>5 - The maximum temperature in fahrenheit</li>
-      <li>6 - The maximum temperature in celsius</li>
-      <li>7 - Go back</li>
+      <li>The inches of rain</li>
+      <li>The mm of rain</li>
+      <li>The inches of snow</li>
+      <li>The cm of snow</li>
+      <li>The maximum temperature in fahrenheit</li>
+      <li>The maximum temperature in celsius</li>
+      <li>Go back</li>
     </ol>
   </li>
-  <li>9 - Quit program</li>
+  <li>Quit program</li>
 </ol>
 
 ## Thank you for using my user interface!
